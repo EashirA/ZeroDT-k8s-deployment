@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zero-app-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zero-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: zero-app
+        version: v1
+    spec:
+      containers:
+      - name: zero-app
+        image: mdea87/k8s-0dt-app:v1
+        ports:
+        - containerPort: 8080
